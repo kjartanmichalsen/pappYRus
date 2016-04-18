@@ -19,8 +19,10 @@ static const uint8_t D10  = 1;
 
 #include <DNSServer.h>            //Local DNS Server used for redirecting all requests to the configuration portal
 
-const char* ssid     = "p";
-const char* password = "a";
+
+// legg til din egen passord
+//const char* ssid     = "p";
+//const char* password = "a";
  
 const char* host = "www.yr.no";
 String url = "/sted/Norge/Oslo/Oslo/Oslo/varsel_time_for_time.xml"; // Bytt ut med din lokasjon
@@ -373,7 +375,20 @@ if(loopCounter==0){
   int pos;
 
   int posw = getWeatherDegree(dataValue);
+
+  Serial.println("dataValue: ");
+  Serial.println(dataValue); 
+  Serial.println("posw: ");
+  Serial.println(posw);  
+  
   posw = posw *20;
+
+  posw = 184 - posw;
+
+  Serial.println("grader: ");
+  Serial.println(posw); 
+
+  
 
   for(pos = 0; pos <=  posw; pos += 1) // goes from 0 degrees to 180 degrees 
   {                                  // in steps of 1 degree 
@@ -388,7 +403,8 @@ if(loopCounter==0){
 
   myservo.write(pos+1);
 
-  //Oppdater skjerm hvert 3 sekund. 
+
+  //Oppdater skjerm hvert n sekund. 
   delay(300000);
 
   
