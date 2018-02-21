@@ -23,6 +23,10 @@ static const uint8_t D10  = 1;
 // legg til din egen passord
 //const char* ssid     = "p";
 //const char* password = "a";
+
+
+const char* ssid     = "pstest";
+const char* password = "artikkelmal";
  
 const char* host = "www.yr.no";
 String url = "/sted/Norge/Oslo/Oslo/Oslo/varsel_time_for_time.xml"; // Bytt ut med din lokasjon
@@ -368,7 +372,7 @@ if(loopCounter==0){
   
   
  loopCounter++;
- if(loopCounter==2){loopCounter=0;}
+ if(loopCounter==1){loopCounter=0;}
 
 // 300 sekunder x 2 = 10 minutter. Oppdater med data fra yr hvert 10. minutt. 
 
@@ -405,7 +409,7 @@ if(loopCounter==0){
 
 
   //Oppdater skjerm hvert n sekund. 
-  delay(300000);
+  delay(3600000);
 
   
 
